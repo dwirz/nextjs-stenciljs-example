@@ -5,29 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BUTTON_SIZES, BUTTON_TYPE, BUTTON_VARIANTS } from "./components/button/exports";
-export { BUTTON_SIZES, BUTTON_TYPE, BUTTON_VARIANTS } from "./components/button/exports";
 export namespace Components {
-    interface AbcButton {
-        "ariaLabel": string;
-        "as": BUTTON_TYPE;
-        "disabled": boolean;
-        "size": BUTTON_SIZES;
-        "type": 'button' | 'submit' | 'reset';
-        "variant": BUTTON_VARIANTS;
-    }
     interface AbcInput {
         "ariaLabel": string;
         "disabled": boolean;
     }
 }
 declare global {
-    interface HTMLAbcButtonElement extends Components.AbcButton, HTMLStencilElement {
-    }
-    var HTMLAbcButtonElement: {
-        prototype: HTMLAbcButtonElement;
-        new (): HTMLAbcButtonElement;
-    };
     interface HTMLAbcInputElement extends Components.AbcInput, HTMLStencilElement {
     }
     var HTMLAbcInputElement: {
@@ -35,25 +19,15 @@ declare global {
         new (): HTMLAbcInputElement;
     };
     interface HTMLElementTagNameMap {
-        "abc-button": HTMLAbcButtonElement;
         "abc-input": HTMLAbcInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface AbcButton {
-        "ariaLabel"?: string;
-        "as"?: BUTTON_TYPE;
-        "disabled"?: boolean;
-        "size"?: BUTTON_SIZES;
-        "type"?: 'button' | 'submit' | 'reset';
-        "variant"?: BUTTON_VARIANTS;
-    }
     interface AbcInput {
         "ariaLabel"?: string;
         "disabled"?: boolean;
     }
     interface IntrinsicElements {
-        "abc-button": AbcButton;
         "abc-input": AbcInput;
     }
 }
@@ -61,7 +35,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "abc-button": LocalJSX.AbcButton & JSXBase.HTMLAttributes<HTMLAbcButtonElement>;
             "abc-input": LocalJSX.AbcInput & JSXBase.HTMLAttributes<HTMLAbcInputElement>;
         }
     }

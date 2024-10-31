@@ -10,33 +10,8 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent, createSSRComponent } from '@stencil/react-output-target/runtime';
-import { AbcButton as AbcButtonElement, defineCustomElement as defineAbcButton } from "abc-web-components/components/abc-button.js";
-import { AbcInput as AbcInputElement, defineCustomElement as defineAbcInput } from "abc-web-components/components/abc-input.js";
+import { AbcInput as AbcInputElement, defineCustomElement as defineAbcInput } from "abc-web-components/./dist/components/abc-input.js";
 import React from 'react';
-
-type AbcButtonEvents = NonNullable<unknown>;
-
-export const AbcButton: StencilReactComponent<AbcButtonElement, AbcButtonEvents> = typeof window !== 'undefined'
-    ? /*@__PURE__*/ createComponent<AbcButtonElement, AbcButtonEvents>({
-        tagName: 'abc-button',
-        elementClass: AbcButtonElement,
-        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
-        react: React,
-        events: {} as AbcButtonEvents,
-        defineCustomElement: defineAbcButton
-    })
-    : /*@__PURE__*/ createSSRComponent<AbcButtonElement, AbcButtonEvents>({
-        tagName: 'abc-button',
-        properties: {
-            disabled: 'disabled',
-            variant: 'variant',
-            size: 'size',
-            type: 'type',
-            as: 'as',
-            ariaLabel: 'aria-label'
-        },
-        hydrateModule: import('abc-web-components/hydrate')
-    });
 
 type AbcInputEvents = NonNullable<unknown>;
 

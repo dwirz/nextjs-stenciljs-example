@@ -16,5 +16,7 @@ log.txt
 node_modules/
 .env
 
-components/
+
 loader/
+
+.components
