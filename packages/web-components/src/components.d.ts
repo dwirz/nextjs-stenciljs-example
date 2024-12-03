@@ -6,12 +6,18 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AbcCheckbox {
+    }
     interface AbcInput {
-        "ariaLabel": string;
-        "disabled": boolean;
     }
 }
 declare global {
+    interface HTMLAbcCheckboxElement extends Components.AbcCheckbox, HTMLStencilElement {
+    }
+    var HTMLAbcCheckboxElement: {
+        prototype: HTMLAbcCheckboxElement;
+        new (): HTMLAbcCheckboxElement;
+    };
     interface HTMLAbcInputElement extends Components.AbcInput, HTMLStencilElement {
     }
     var HTMLAbcInputElement: {
@@ -19,15 +25,17 @@ declare global {
         new (): HTMLAbcInputElement;
     };
     interface HTMLElementTagNameMap {
+        "abc-checkbox": HTMLAbcCheckboxElement;
         "abc-input": HTMLAbcInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface AbcCheckbox {
+    }
     interface AbcInput {
-        "ariaLabel"?: string;
-        "disabled"?: boolean;
     }
     interface IntrinsicElements {
+        "abc-checkbox": AbcCheckbox;
         "abc-input": AbcInput;
     }
 }
@@ -35,6 +43,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "abc-checkbox": LocalJSX.AbcCheckbox & JSXBase.HTMLAttributes<HTMLAbcCheckboxElement>;
             "abc-input": LocalJSX.AbcInput & JSXBase.HTMLAttributes<HTMLAbcInputElement>;
         }
     }

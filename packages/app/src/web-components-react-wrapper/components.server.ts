@@ -10,8 +10,26 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent, createSSRComponent } from '@stencil/react-output-target/runtime';
+import { AbcCheckbox as AbcCheckboxElement, defineCustomElement as defineAbcCheckbox } from "abc-web-components/./dist/components/abc-checkbox.js";
 import { AbcInput as AbcInputElement, defineCustomElement as defineAbcInput } from "abc-web-components/./dist/components/abc-input.js";
 import React from 'react';
+
+type AbcCheckboxEvents = NonNullable<unknown>;
+
+export const AbcCheckbox: StencilReactComponent<AbcCheckboxElement, AbcCheckboxEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<AbcCheckboxElement, AbcCheckboxEvents>({
+        tagName: 'abc-checkbox',
+        elementClass: AbcCheckboxElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: {} as AbcCheckboxEvents,
+        defineCustomElement: defineAbcCheckbox
+    })
+    : /*@__PURE__*/ createSSRComponent<AbcCheckboxElement, AbcCheckboxEvents>({
+        tagName: 'abc-checkbox',
+        properties: {},
+        hydrateModule: import('abc-web-components/hydrate')
+    });
 
 type AbcInputEvents = NonNullable<unknown>;
 
@@ -26,9 +44,6 @@ export const AbcInput: StencilReactComponent<AbcInputElement, AbcInputEvents> = 
     })
     : /*@__PURE__*/ createSSRComponent<AbcInputElement, AbcInputEvents>({
         tagName: 'abc-input',
-        properties: {
-            disabled: 'disabled',
-            ariaLabel: 'aria-label'
-        },
+        properties: {},
         hydrateModule: import('abc-web-components/hydrate')
     });

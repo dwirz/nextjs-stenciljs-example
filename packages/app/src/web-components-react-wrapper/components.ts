@@ -6,4 +6,4 @@
  */
 
 /* eslint-disable */
-export { AbcInput } from "./components.server";
+export { AbcCheckbox, AbcInput } from "./components.server";

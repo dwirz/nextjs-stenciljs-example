@@ -8,7 +8,7 @@
     "url": "git+ssh://git@github.com/baumgm94/stenciljs-nextjs-example.git"
   },
   "engines": {
-    "node": "^20.0.0",
+    "node": "^22.0.0",
     "npm": "^10.0.0"
   },
   "main": "dist/index.cjs.js",
@@ -26,11 +26,9 @@
     "build": "stencil build"
   },
   "dependencies": {
-    "@stencil/core": "4.22.2"
+    "@stencil/core": "4.22.3"
   },
   "devDependencies": {
-    "@stencil/sass": "3.0.12",
-    "@types/node": "20.17.1",
     "@stencil/react-output-target": "0.7.4"
   },
   "nx": {

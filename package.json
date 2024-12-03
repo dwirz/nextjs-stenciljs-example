@@ -1,5 +1,5 @@
 {
-  "name": "stenciljs-nextjs-example",
+  "name": "nextjs-stenciljs-example",
   "version": "0.0.0-development",
   "license": "ISC",
   "scripts": {
@@ -7,7 +7,7 @@
     "build:web-components": "lerna run build --scope=abc-web-components"
   },
   "engines": {
-    "node": "^20.0.0",
+    "node": "^22.0.0",
     "npm": "^10.0.0"
   },
   "devDependencies": {

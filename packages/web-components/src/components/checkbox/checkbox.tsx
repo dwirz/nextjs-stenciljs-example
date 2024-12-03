@@ -1,25 +1,28 @@
 import { AttachInternals, Component, h } from "@stencil/core";
 
 @Component({
-  tag: "abc-input",
+  tag: "abc-checkbox",
   shadow: true,
   formAssociated: true,
 })
-export class Input {
+export class Checkbox {
   @AttachInternals()
   internals: ElementInternals;
 
   componentDidLoad() {
-    // This call leads to a server-side console.error
-    // because of https://github.com/ionic-team/stencil/blob/c2e97f797f6eb7b843aa153fef2780073ec76898/src/mock-doc/node.ts#L234
+    // This is a workaround to avoid the error message in the console.
+    if (typeof window === "undefined" || window.constructor.name !== "Window") {
+      return;
+    }
+
     this.internals.setValidity({});
   }
 
   render() {
     return (
       <label>
-        Input Label
-        <input />
+        <input type="checkbox" />
+        Checkbox Label
       </label>
     );
   }

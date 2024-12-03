@@ -1,11 +1,11 @@
-# Stencil within Next.js App Router Project
+# Stencil ElementInternals Issue
 
-**Local Setup**:
-
-- Install dependencies: `npm ci`
-- Build web-components: `npm run build:web-components`
-- Start development server: `npm run dev:app`
-- Open browser: [http://localhost:3000](http://localhost:3000)
-- Open dev-tools and reload page, you should see: `Uncaught RangeError: Maximum call stack size exceeded`
-
-
+1. Install dependencies: `npm ci`
+1. Build web-components: `npm run build:web-components`
+1. Start development server: `npm run dev:app`
+1. Open browser: [http://localhost:3000](http://localhost:3000)
+1. Go back to your terminal a `console.error` will be displayed with the following message:
+    ```
+    NOTE: Property setValidity was accessed on ElementInternals, but this property is not implemented.
+    Testing components with ElementInternals is fully supported in e2e tests.
+    ```
